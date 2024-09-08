@@ -2,7 +2,9 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Source Code Pro", sans-serif;
+	font-family: "Rajdhani", sans-serif;
+  	font-weight: 500;
+  	font-style: normal;
 	color: #D4AF37;
 }
 
@@ -37,17 +39,17 @@ input[type="file"] {
 
 .heading__title {
 	font-size: 3rem;
-	font-weight: 200;
+	font-weight: 700;
 }
 
 .heading__subtitle {
-	font-weight: 400;
+	font-weight: 600;
 }
 
 canvas {
 	grid-column: 2;
 	grid-row: 2;
-	border: 1px solid #D4AF37;
+	border: 1px solid #000000;
 }
 
 .note {
