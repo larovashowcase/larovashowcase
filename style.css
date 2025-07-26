@@ -31,12 +31,12 @@ input[type="file"] {
 	grid-column: 1 / span 3;
 	grid-row: 1;
 	text-align: center;
-	text-shadow: 0px 0px 5px #BFA972;
+	text-shadow: 0px 0px 1px #BFA972;
 }
 
 .heading__image {
 	max-width: 40%;
-	filter: drop-shadow(0px 0px 100px #BFA972);
+	filter: drop-shadow(0px 0px 50px #BFA972);
 }
 
 .heading__title {
