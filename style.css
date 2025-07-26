@@ -5,7 +5,7 @@
 	font-family: "MedievalSharp", sans-serif;
   	font-weight: 700;
   	font-style: normal;
-	color: #C2BEB0;
+	color: #BFA972;
 }
 
 body, html {
@@ -31,12 +31,12 @@ input[type="file"] {
 	grid-column: 1 / span 3;
 	grid-row: 1;
 	text-align: center;
-	text-shadow: 0px 0px 5px #C2BEB0;
+	text-shadow: 0px 0px 5px #BFA972;
 }
 
 .heading__image {
 	max-width: 40%;
-	filter: drop-shadow(0px 0px 100px #C2BEB0);
+	filter: drop-shadow(0px 0px 100px #BFA972);
 }
 
 .heading__title {
@@ -51,7 +51,7 @@ input[type="file"] {
 canvas {
 	grid-column: 2;
 	grid-row: 2;
-	border: 0px solid #C2BEB0;
+	border: 0px solid #BFA972;
 }
 
 .note {
@@ -79,7 +79,7 @@ canvas {
 	padding-inline: 0.5rem;
 	padding-block: 0.25rem;
 	background-color: transparent;
-	border: 1px solid #C2BEB0;
+	border: 1px solid #BFA972;
 	cursor: pointer;
 }
 
@@ -93,7 +93,7 @@ canvas {
 }
 
 .setting__button:hover {
-	background-color: #C2BEB0;
+	background-color: #BFA972;
 	color: black;
 }
 
@@ -102,7 +102,7 @@ canvas {
 	width: 100%;
 	background-color: transparent;
 	border-style: unset;
-	border-bottom: 1px solid #C2BEB0;
+	border-bottom: 1px solid #BFA972;
 }
 
 .setting__text-input:focus {
