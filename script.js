@@ -167,9 +167,19 @@ function main() {
     function createShowcase() {
         const canvas = document.querySelector('canvas');
         const ctx = canvas.getContext('2d');
-        const showcaseTemplate = new Image();
+        let showcaseTemplate = new Image();
         showcaseTemplate.src = 'showcaseTemplate.png';
-        showcaseTemplate.onload = () => ctx.drawImage(showcaseTemplate, 0, 0);
+        showcaseTemplate.onload = () => generateShowcase();
+
+        // Swap the card (Ingeld, City Watch, ...) and redraw once it has loaded.
+        function setCard(src) {
+            const card = new Image();
+            card.onload = () => {
+                showcaseTemplate = card;
+                generateShowcase();
+            };
+            card.src = src;
+        }
 
         function generateShowcase() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -202,6 +212,7 @@ function main() {
             canvas,
             ctx,
             generateShowcase,
+            setCard,
         };
     }
 
@@ -236,6 +247,8 @@ function main() {
     async function handleFileUpload(uploadButtonSetting) {
         const [file, fileName] = await getFileUpload();
         settings.setSettingFile(uploadButtonSetting, file, fileName);
+        if (file.complete) showcase.generateShowcase();
+        else file.addEventListener('load', () => showcase.generateShowcase(), { once: true });
     }
 
     async function getFileUpload() {
@@ -258,20 +271,35 @@ function main() {
 
     function listenForColorInput() {
         const colorInput = document.querySelector('[colorInput]');
-        colorInput.onchange = () => {
+        colorInput.oninput = () => {
             settings.colorValue = colorInput.value;
+            showcase.generateShowcase();
         };
     }
 
-    function listenForGenerate() {
-        const generateButton = document.querySelector('[generateButton]');
-        generateButton.addEventListener('click', () => showcase.generateShowcase());
+    function listenForCardSelect() {
+        const cardSelect = document.querySelector('[cardSelect]');
+        cardSelect.addEventListener('change', () => showcase.setCard(cardSelect.value));
+    }
+
+    function listenForDownload() {
+        const downloadButton = document.querySelector('[downloadButton]');
+        downloadButton.addEventListener('click', () => {
+            showcase.canvas.toBlob(blob => {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'showcase.png';
+                link.click();
+                setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+            }, 'image/png');
+        });
     }
 
     function listenForInputs() {
         listenForFileUpload();
         listenForColorInput();
-        listenForGenerate();
+        listenForCardSelect();
+        listenForDownload();
     }
 
     const showcase = createShowcase();

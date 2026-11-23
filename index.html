@@ -18,10 +18,20 @@
             <h3 class="heading__subtitle">Automatically generate showcases for outfits.</h3>
         </div>
         <p class="note">
-            After generating your showcase, right click to save it as a PNG.
+            Pick a card, upload your shirt and pants, then press Download.
         </p>
         <canvas class="display" width="700" height="373"></canvas>
         <div class="settings">
+            <div class="setting">
+                <label class="setting__display" for="card">Card:</label>
+                <select class="setting__select" id="card" cardSelect>
+                    <option value="showcaseTemplate.png">Ingeld</option>
+                    <option value="cards/city-watch.png">City Watch</option>
+                    <option value="cards/dasmant.png">Dasmant</option>
+                    <option value="cards/jequis.png">Jequis</option>
+                    <option value="cards/lost-men.png">Lost Men</option>
+                </select>
+            </div>
             <div class="setting">
                 <p class="setting__display" settingDisplay setting="shirt">Shirt:</p>
                 <button class="setting__button" uploadButton setting="shirt">Upload</button>
@@ -34,7 +44,7 @@
                 <p class="setting__display" settingDisplay>Color:</p>
                 <input type="text" class="setting__text-input" colorInput />
             </div>
-            <button class="setting__button" generateButton>Generate</button>
+            <button class="setting__button" downloadButton>Download</button>
         </div>
     </body>
 </html>

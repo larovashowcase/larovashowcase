@@ -108,3 +108,11 @@ canvas {
 .setting__text-input:focus {
 	outline: none;
 }
+
+.setting__select {
+	margin-inline: 0.5rem;
+	width: 100%;
+	background-color: #505E50;
+	border: 1px solid #BFA972;
+	padding-block: 0.25rem;
+}
